@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>在庫管理システム</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">在庫管理システム</h1>
+
+  <nav class="menu">
+    <a href="/purchase" class="menu-item">仕入入力</a>
+    <a href="/materials" class="menu-item">材料マスタ管理</a>
+    <a href="/inventory" class="menu-item">在庫確認（棚卸）</a>
+    <a href="/analysis" class="menu-item">差異分析</a>
+  </nav>
+
+</div>
+
+</body>
+</html>

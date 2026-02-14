@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>仕入入力</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">仕入入力</h1>
+
+  <form method="post" action="/purchase" class="form-card">
+
+    <div class="form-group">
+      <label>仕入日</label>
+      <input type="date" name="purchase_date" required>
+    </div>
+
+    <div class="form-group">
+      <label>材料</label>
+      <select name="material_id" required>
+        {% for m in materials %}
+          <option value="{{ m.id }}">
+            {{ m.name }}（{{ m.unit }}）
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>数量</label>
+      <input type="number" step="0.01" name="quantity" required>
+    </div>
+
+    <div class="form-group">
+      <label>仕入金額（合計）</label>
+      <input type="number" step="1" name="amount" required>
+    </div>
+
+    <button type="submit" class="primary-button">登録</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>

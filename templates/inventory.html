@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>在庫確認（棚卸）</title>
+</head>
+<body>
+
+<h1>在庫確認（棚卸）</h1>
+
+<form method="post" action="/inventory">
+
+  <div>
+    <label>棚卸日</label><br>
+    <input type="date" name="inventory_date" required>
+  </div>
+
+  <div>
+    <label>材料</label><br>
+    <select name="material_id" required>
+      {% for m in materials %}
+        <option value="{{ m.id }}">
+          {{ m.name }}（{{ m.unit }}）
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    <label>実在庫数量</label><br>
+    <input type="number" step="0.01" name="actual_quantity" required>
+  </div>
+
+  <div>
+    <button type="submit">登録</button>
+  </div>
+
+</form>
+
+<p>
+  <a href="/">トップに戻る</a>
+</p>
+
+</body>
+</html>
